@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<p> Add your new Aim! </p>
+
+<form action="save_new_aim/" method="post"> {% csrf_token %}
+	<p>
+	    <label for="aim_name">Your aim: </label>
+	    <input id="aim_name" type="text" name="aim_name" value="{{ aim_name }}">
+	</p>
+	<p>
+	    <label for="aim_description">Description: </label>
+	    <input id="aim_description" type="text" name="aim_description" value="{{ aim_description }}">
+	</p>
+	<p>
+	    <label for="aim_bet">Your bet: </label>
+	    <input id="aim_bet" type="text" name="aim_bet" value="{{ aim_bet }}">
+	</p>
+	<p>
+	    <label for="aim_type">Aim type: </label>
+	    <input id="aim_type" type="text" name="aim_type" value="{{ aim_type }}">
+	</p>
+	<p>
+	    <label for="aim_finish">Date finish: </label>
+	    <input type="date" id="aim_finish" name="aim_finish" value="{{ aim_finish }}">
+	</p>
+    <input type="submit" value="OK">
+</form>
+<script src="{% static "aimer/js/jquery/jquery-1.11.1.min.js" %}"></script>
+<script type="text/javascript">
+  document.getElementById('aim_finish').value = Date();
+</script>
